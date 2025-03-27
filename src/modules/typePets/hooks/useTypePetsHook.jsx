@@ -11,7 +11,7 @@ export const useTypePetsHook = () => {
             setLoading(true);
             const res = await TypePetAPI.getAllTypePets();
             if(!res.status) throw new Error(res.message);
-            console.log(res.data);
+            setTypePets(res.data.typePets);
         } catch (err) {
             errorAlert(err.message);
         } finally {

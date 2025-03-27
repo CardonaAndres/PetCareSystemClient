@@ -7,7 +7,7 @@ Este es el frontend del proyecto **PetCareSystem**, una plataforma para la gesti
 - 🎨 Tailwind CSS  
 
 ## 📸 Capturas de pantalla  
-_(Capturas del proyecto)_  
+![alt text](image.png)
 
 ## 📥 Instalación y ejecución  
 

@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import { Menu, X, PawPrint, Calendar, Syringe, Bell, User, LogOut } from 'lucide-react';
+import { Menu, X, PawPrint, User, LogOut } from 'lucide-react';
+import { router } from '../configs/router';
 import { useAuth } from '../contexts/AuthContext';
+import { Link } from 'react-router-dom';
 
 export const Navbar = () => {
   const { logout } = useAuth();
@@ -8,22 +10,19 @@ export const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
   
   const navItems = [
-    { name: 'Citas', icon: <Calendar size={20} />, path: '/appointments' },
-    { name: 'Vacunas', icon: <Syringe size={20} />, path: '/vaccines' },
-    { name: 'Notificaciones', icon: <Bell size={20} />, path: '/notifications' },
-    { name: 'Perfil', icon: <User size={20} />, path: '/profile' },
+    { name: 'Perfil', icon: <User size={20} />, path: router.profile },
   ];
 
   return (
-    <nav className="bg-black shadow-lg">
+    <nav className="bg-black shadow-lg border rounded-2xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           {/* Logo and brand */}
           <div className="flex items-center">
-            <div className="flex-shrink-0 flex items-center">
+            <Link to={router.dashboard} className="flex-shrink-0 flex items-center">
               <PawPrint className="h-8 w-8 text-purple-400" />
               <span className="ml-2 text-xl font-bold text-white">PetCare</span>
-            </div>
+            </Link>
           </div>
 
           {/* Desktop menu */}

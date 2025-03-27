@@ -1,6 +1,13 @@
 import { Edit, Trash, Eye  } from 'lucide-react';
+import { useState } from 'react';
+import { FormModal } from './FormModal';
+import { usePetHook } from '../hooks/usePetHook';
 
 export const PetCard = ({ pet }) => {
+    const [ modalForm, setModalForm ] = useState(false);
+    const { deletePet } = usePetHook(); 
+    const handleModalForm = () => setModalForm(!modalForm);
+
     const calculateAge = (birthDate) => {
         const birth = new Date(birthDate);
         const today = new Date();
@@ -8,7 +15,7 @@ export const PetCard = ({ pet }) => {
         const monthDiff = today.getMonth() - birth.getMonth();
         
         if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
-        age--;
+          age--;
         }
         
         return age;
@@ -37,15 +44,11 @@ export const PetCard = ({ pet }) => {
       <div className="w-full md:w-2/3 p-4 bg-white">
         <div className="flex justify-between items-start">
           <h3 className="text-xl font-bold text-black">{pet.name}</h3>
-          <div className="text-xs bg-purple-100 text-purple-800 rounded-full px-2 py-1">
-            {pet.race || 'Sin raza'}
-          </div>
         </div>
         
         <div className="mt-2 text-sm text-gray-600">
           <p>Edad: {calculateAge(pet.birth_date)} años</p>
           <p>Nacimiento: {formatDate(pet.birth_date)}</p>
-          <p className="line-clamp-2 mt-1">{pet.description || 'Sin descripción'}</p>
         </div>
         
         {/* Botones de acción */}
@@ -53,15 +56,17 @@ export const PetCard = ({ pet }) => {
           <button className="p-1.5 text-purple-600 hover:bg-purple-100 rounded-full transition-colors duration-200">
             <Eye size={18} />
           </button>
-          <button className="p-1.5 text-blue-600 hover:bg-blue-100 rounded-full transition-colors duration-200">
+          <button onClick={handleModalForm} className="p-1.5 text-blue-600 hover:bg-blue-100 rounded-full transition-colors duration-200">
             <Edit size={18} />
           </button>
-          <button className="p-1.5 text-red-600 hover:bg-red-100 rounded-full transition-colors duration-200">
+          <button onClick={() => deletePet(pet.pet_ID)} className="p-1.5 text-red-600 hover:bg-red-100 rounded-full transition-colors duration-200">
             <Trash size={18} />
           </button>
         </div>
       </div>
     </div>
+
+    <FormModal open={modalForm} onClose={handleModalForm} petData={pet} />
   </div>
   )
 }

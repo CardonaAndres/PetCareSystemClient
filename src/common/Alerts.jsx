@@ -39,3 +39,26 @@ export const errorAlert = (message = 'Algo salió mal, por favor intenta de nuev
     });
     
 };
+
+export const confirmAlert = async (message) => {
+  return Swal.fire({
+      icon: 'warning',
+      title: '¿Estás seguro?',
+      text: message,
+      color: '#2c2c2c',
+      iconColor: '#ffca28',
+      confirmButtonText: 'Confirmar',
+      confirmButtonColor: '#1d023d',
+      cancelButtonText: 'Cancelar',
+      showCancelButton: true,
+      showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+      },
+      customClass: {
+          popup: 'swal2-dark-alert',
+      }
+  });
+};

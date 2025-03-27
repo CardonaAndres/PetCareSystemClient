@@ -7,6 +7,7 @@ import { LoginPage } from './modules/auth/pages/LoginPage';
 import { RegisterPage } from './modules/auth/pages/RegisterPage';
 import { ProtectedRoute } from './modules/auth/components/ProtectedRoute';
 import { Dashboard } from './modules/dashboard/page/Dashboard';
+import { ProfilePage } from './modules/users/pages/ProfilePage';
 
 function App() {
   return (
@@ -19,8 +20,7 @@ function App() {
 
               <Route element={<ProtectedRoute />}>
                 <Route path={router.dashboard} element={<Dashboard />} />
-              
-              
+                <Route path={router.profile} element={<ProfilePage />} />
               
               </Route>
             </Routes>
