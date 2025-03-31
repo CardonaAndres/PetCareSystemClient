@@ -25,9 +25,7 @@ export const HomePage = () => {
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
             <a href="#" className="hover:text-purple-400 transition duration-300">Inicio</a>
-            <a href="#" className="hover:text-purple-400 transition duration-300">Servicios</a>
-            <a href="#" className="hover:text-purple-400 transition duration-300">Mis Mascotas</a>
-            <a href="#" className="hover:text-purple-400 transition duration-300">Historial</a>
+            <a href="#Services" className="hover:text-purple-400 transition duration-300">Servicios</a>
             <a href="#" className="hover:text-purple-400 transition duration-300">Contacto</a>
           </div>
           
@@ -48,9 +46,7 @@ export const HomePage = () => {
         <div className="md:hidden bg-black border-b border-purple-800 px-4 py-2">
           <div className="flex flex-col space-y-4 py-2">
             <a href="#" className="hover:text-purple-400 transition duration-300">Inicio</a>
-            <a href="#" className="hover:text-purple-400 transition duration-300">Servicios</a>
-            <a href="#" className="hover:text-purple-400 transition duration-300">Mis Mascotas</a>
-            <a href="#" className="hover:text-purple-400 transition duration-300">Historial</a>
+            <a href="#Services" className="hover:text-purple-400 transition duration-300">Servicios</a>
             <a href="#" className="hover:text-purple-400 transition duration-300">Contacto</a>
             <button className="bg-purple-700 hover:bg-purple-600 px-4 py-2 rounded-md transition duration-300 text-left">
               Iniciar Sesión
@@ -66,15 +62,6 @@ export const HomePage = () => {
           <div className="md:w-1/2 mb-8 md:mb-0">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Cuidado de mascotas <span className="text-purple-500">simplificado</span></h1>
             <p className="text-lg mb-8 text-gray-300">Gestiona fácilmente citas veterinarias y lleva un registro de vacunas para mantener a tus mascotas saludables.</p>
-            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-              <button className="bg-purple-700 hover:bg-purple-600 px-6 py-3 rounded-md transition duration-300 flex items-center justify-center">
-                <span>Agendar Cita</span>
-                <ChevronRight size={18} className="ml-2" />
-              </button>
-              <button className="border border-purple-500 hover:bg-purple-900 px-6 py-3 rounded-md transition duration-300">
-                Registrar Mascota
-              </button>
-            </div>
           </div>
           <div className="md:w-1/2 flex justify-center">
             <div className="relative">
@@ -86,7 +73,7 @@ export const HomePage = () => {
       </div>
       
       {/* Features Section */}
-      <div className="bg-black py-16">
+      <div className="bg-black py-16" id='Services'>
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Características <span className="text-purple-500">Principales</span></h2>
           
@@ -132,9 +119,6 @@ export const HomePage = () => {
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold mb-6">¿Listo para simplificar el cuidado de tus mascotas?</h2>
           <p className="text-lg mb-8 text-gray-300">Registra a tus mascotas hoy y comienza a gestionar su cuidado de salud de manera eficiente.</p>
-          <button className="bg-purple-700 hover:bg-purple-600 px-8 py-3 rounded-md transition duration-300 text-lg">
-            Comenzar Ahora
-          </button>
         </div>
       </div>
       

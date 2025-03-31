@@ -3,5 +3,7 @@ export const router = {
     Login : '/login',
     register : '/register',
     dashboard : '/dashboard',
-    profile : '/profile'
+    profile : '/profile',
+    admin : '/admin',
+    appointments : '/appointments'
 }

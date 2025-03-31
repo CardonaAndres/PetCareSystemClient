@@ -2,11 +2,15 @@ import { Edit, Trash, Eye  } from 'lucide-react';
 import { useState } from 'react';
 import { FormModal } from './FormModal';
 import { usePetHook } from '../hooks/usePetHook';
+import { OptionsModal } from './OptionsModal';
 
 export const PetCard = ({ pet }) => {
     const [ modalForm, setModalForm ] = useState(false);
-    const { deletePet } = usePetHook(); 
+    const [ modalOptions, setModalOptions ] = useState(false);
     const handleModalForm = () => setModalForm(!modalForm);
+    const handleModalOptions = () => setModalOptions(!modalOptions);
+
+    const { deletePet } = usePetHook(); 
 
     const calculateAge = (birthDate) => {
         const birth = new Date(birthDate);
@@ -53,7 +57,7 @@ export const PetCard = ({ pet }) => {
         
         {/* Botones de acción */}
         <div className="mt-3 flex justify-end space-x-2">
-          <button className="p-1.5 text-purple-600 hover:bg-purple-100 rounded-full transition-colors duration-200">
+          <button onClick={handleModalOptions} className="p-1.5 text-purple-600 hover:bg-purple-100 rounded-full transition-colors duration-200">
             <Eye size={18} />
           </button>
           <button onClick={handleModalForm} className="p-1.5 text-blue-600 hover:bg-blue-100 rounded-full transition-colors duration-200">
@@ -66,6 +70,7 @@ export const PetCard = ({ pet }) => {
       </div>
     </div>
 
+    <OptionsModal open={modalOptions} onClose={handleModalOptions} pet={pet} />
     <FormModal open={modalForm} onClose={handleModalForm} petData={pet} />
   </div>
   )

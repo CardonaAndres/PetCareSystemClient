@@ -1,17 +1,30 @@
-import { useState } from 'react';
-import { Menu, X, PawPrint, User, LogOut } from 'lucide-react';
+import { useMemo, useState } from 'react';
+import { Menu, X, PawPrint, User, LogOut, ShieldUser } from 'lucide-react';
 import { router } from '../configs/router';
 import { useAuth } from '../contexts/AuthContext';
 import { Link } from 'react-router-dom';
 
+const navItems = [
+  { name: 'Perfil', icon: <User size={20} />, path: router.profile },
+];
+
 export const Navbar = () => {
-  const { logout } = useAuth();
+  
+  const { logout, user } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
   
-  const navItems = [
-    { name: 'Perfil', icon: <User size={20} />, path: router.profile },
-  ];
+  const filterNavItems = useMemo(() => {
+    const items = [...navItems];
+    
+    if(user?.role_ID === 1) {
+      if (!items.some(item => item.name === 'Admin')) {
+        items.push({ name: 'Admin', icon: <ShieldUser size={20} />, path: router.admin });
+      }
+    }
+
+    return items;
+  }, [user?.role_ID]);
 
   return (
     <nav className="bg-black shadow-lg border rounded-2xl">
@@ -28,7 +41,7 @@ export const Navbar = () => {
           {/* Desktop menu */}
           <div className="hidden md:flex items-center justify-end md:flex-1">
             <div className="flex space-x-4">
-              {navItems.map((item) => (
+              {filterNavItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.path}

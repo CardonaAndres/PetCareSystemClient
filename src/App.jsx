@@ -8,6 +8,9 @@ import { RegisterPage } from './modules/auth/pages/RegisterPage';
 import { ProtectedRoute } from './modules/auth/components/ProtectedRoute';
 import { Dashboard } from './modules/dashboard/page/Dashboard';
 import { ProfilePage } from './modules/users/pages/ProfilePage';
+import { AdminPage } from './modules/admin/pages/AdminPage';
+import { AccessControl } from './modules/auth/components/AccessControl';
+import { AppointmentsManager } from './modules/pets/pages/AppointmentsManager';
 
 function App() {
   return (
@@ -21,7 +24,13 @@ function App() {
               <Route element={<ProtectedRoute />}>
                 <Route path={router.dashboard} element={<Dashboard />} />
                 <Route path={router.profile} element={<ProfilePage />} />
-              
+                <Route path={router.appointments} element={<AppointmentsManager />} />
+
+                <Route element={<AccessControl />}>
+                  <Route path={router.admin} element={<AdminPage />} />
+                  
+                </Route>
+
               </Route>
             </Routes>
           </Router>
