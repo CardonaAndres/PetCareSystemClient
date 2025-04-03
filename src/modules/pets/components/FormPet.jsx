@@ -6,7 +6,6 @@ import { LoadingScreen } from '../../../common/LoadingScreen';
 import { usePetHook } from '../hooks/usePetHook';
 
 export const FormPet = ({ onClose, petData }) => {
-  console.log(petData);
   const isEditMode = !!petData.pet_ID; 
   const [imagePreview, setImagePreview] = useState(petData?.photo_url || null);
   const { typePets : petTypes, getTypePets, loading } = useTypePetsHook();

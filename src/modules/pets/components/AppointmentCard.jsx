@@ -1,6 +1,8 @@
 import { Calendar, Clock, User, FileText, Bookmark } from 'lucide-react';
+import { useAppointmentsHook } from '../hooks/useAppointmentsHook';
 
 export const AppointmentCard = ({ appointment }) => {
+    const { deleteAppointment } = useAppointmentsHook(appointment.pet_ID);
     const formatDate = (dateString) => {
       return new Date(dateString).toLocaleDateString('es-ES', {
         year: 'numeric',
@@ -22,7 +24,7 @@ export const AppointmentCard = ({ appointment }) => {
           <div className="flex justify-between items-center">
             <h3 className="text-xl font-bold">{appointment.name}</h3>
             <span className="bg-purple-800 rounded-full px-3 py-1 text-sm">
-              ID: {appointment.pet_ID}
+              ID: {appointment.appointment_ID}
             </span>
           </div>
         </div>
@@ -65,7 +67,7 @@ export const AppointmentCard = ({ appointment }) => {
         </div>
         
         <div className="border-t border-gray-800 p-4 flex justify-end">
-          <button className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md transition-colors">
+          <button onClick={async () => await deleteAppointment(appointment.appointment_ID)} className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md transition-colors">
             Cancelar Cita
           </button>
         </div>
