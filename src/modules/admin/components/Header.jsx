@@ -58,6 +58,9 @@ export const Header = ({ searchTerm, filterRole, roles, setSearchTerm, setFilter
               <Link to={router.typePets} className="flex items-center w-full px-4 py-2 text-sm text-gray-200 hover:bg-gray-700">
                 Tipos de mascotas
               </Link>
+              <Link to={router.adminPosts} className="flex items-center w-full px-4 py-2 text-sm text-gray-200 hover:bg-gray-700">
+                Publicaciones
+              </Link>
             </div>
           )}
         </div>

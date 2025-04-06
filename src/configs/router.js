@@ -7,5 +7,7 @@ export const router = {
     admin : '/admin',
     appointments : '/appointments',
     vaccines : '/vaccines',
-    typePets : '/type-pets'
+    typePets : '/type-pets',
+    adminPosts : '/admin/posts',
+    posts : '/posts',
 }

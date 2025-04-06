@@ -13,6 +13,8 @@ import { AccessControl } from './modules/auth/components/AccessControl';
 import { AppointmentsManager } from './modules/pets/pages/AppointmentsManager';
 import { VaccinesManager } from './modules/pets/pages/VaccinesManager';
 import { TypePetsManager } from './modules/typePets/pages/TypePetsManager';
+import { PostManager } from './modules/posts/pages/PostManager';
+import { ViewPosts } from './modules/posts/pages/ViewPosts';
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
               <Route path={router.home} element={<HomePage />} />
               <Route path={router.Login} element={<LoginPage />} />
               <Route path={router.register} element={<RegisterPage />} />
+              <Route path={router.posts} element={<ViewPosts />} />
 
               <Route element={<ProtectedRoute />}>
                 <Route path={router.dashboard} element={<Dashboard />} />
@@ -32,7 +35,8 @@ function App() {
                 <Route element={<AccessControl />}>
                   <Route path={router.admin} element={<AdminPage />} />
                   <Route path={router.typePets} element={<TypePetsManager />} />
-
+                  <Route path={router.adminPosts} element={<PostManager />} />
+                  
                 </Route>
 
               </Route>

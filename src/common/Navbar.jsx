@@ -1,11 +1,12 @@
 import { useMemo, useState } from 'react';
-import { Menu, X, PawPrint, User, LogOut, ShieldUser } from 'lucide-react';
+import { Menu, X, PawPrint, User, LogOut, ShieldUser, BookText } from 'lucide-react';
 import { router } from '../configs/router';
 import { useAuth } from '../contexts/AuthContext';
 import { Link } from 'react-router-dom';
 
 const navItems = [
   { name: 'Perfil', icon: <User size={20} />, path: router.profile },
+  { name: 'Publicaciones', icon: <BookText size={20} />, path: router.posts },
 ];
 
 export const Navbar = () => {

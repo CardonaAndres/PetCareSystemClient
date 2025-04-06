@@ -11,8 +11,8 @@ export const AppointmentsManager = () => {
     const [ modal, setModal ] = useState(false);
     const [ currentPage, setCurrentPage ] = useState(1);
     const handleModal = () => setModal(!modal);
-    const nextPage = () => { if (currentPage < totalPages) setCurrentPage(currentPage + 1);};
-    const prevPage = () => { if (currentPage > 1) setCurrentPage(currentPage - 1) }
+    const nextPage = () => { if (currentPage < pagination.totalPages) setCurrentPage(currentPage + 1); };
+    const prevPage = () => { if (currentPage > 1) setCurrentPage(currentPage - 1) };
 
     const [searchParams] = useSearchParams();
     const { 

@@ -3,15 +3,15 @@ import { useAdminHook } from '../hooks/useAdminHook';
 import { LoadingScreen } from '../../../common/LoadingScreen';
 import { useEffect, useState } from 'react';
 import { Pagination } from '../../../common/Pagination';
-import { Search, UserCheck, Filter, User } from 'lucide-react';
+import { UserCheck, User } from 'lucide-react';
 import { UserCard } from '../components/UserCard';
 import { Header } from '../components/Header';
 
 export const AdminPage = () => {
   const { loading, getAllUsersPaginate, users, pagination } = useAdminHook();
   const [ currentPage, setCurrentPage ] = useState(1);
-  const nextPage = () => { if (currentPage < totalPages) setCurrentPage(currentPage + 1);};
-  const prevPage = () => { if (currentPage > 1) setCurrentPage(currentPage - 1) }
+  const nextPage = () => { if (currentPage < pagination.totalPages) setCurrentPage(currentPage + 1); };
+  const prevPage = () => { if (currentPage > 1) setCurrentPage(currentPage - 1) };
 
   const [searchTerm, setSearchTerm] = useState('');
   const [filterRole, setFilterRole] = useState('');

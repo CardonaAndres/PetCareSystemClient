@@ -1,8 +1,8 @@
 import { SERVER_URL } from "../../../configs/server";
 
-export const getAllTypePets = async () => {
+export const getAllPostsPaginate = async (page = 1) => {
     try {
-        const res = await fetch(`${SERVER_URL}/type-pets/`, {
+        const res = await fetch(`${SERVER_URL}/posts/?page=${page}`, {
             method : 'GET', headers : { 'Content-Type': 'application/json' },
             credentials : 'include'
         });
@@ -12,15 +12,15 @@ export const getAllTypePets = async () => {
         return { status : true, data }
 
     } catch (err) {
-        return { status : false, message : err.message }
+        return { status : false, message: err.message };
     }
 }
 
-export const registerTypePet = async (typePetData) => {
+export const createPost = async (post) => {
     try {
-        const res = await fetch(`${SERVER_URL}/type-pets/`, {
+        const res = await fetch(`${SERVER_URL}/posts/`, {
             method : 'POST', headers : { 'Content-Type': 'application/json' },
-            credentials : 'include', body : JSON.stringify(typePetData)
+            credentials : 'include', body : JSON.stringify(post)
         });
         
         const data = await res.json();
@@ -28,15 +28,15 @@ export const registerTypePet = async (typePetData) => {
         return { status : true, data }
 
     } catch (err) {
-        return { status : false, message : err.message }
+        return { status : false, message: err.message };
     }
 }
 
-export const updateTypePet = async (typePetData) => {
+export const updatePost = async (post) => {
     try {
-        const res = await fetch(`${SERVER_URL}/type-pets/${typePetData.type_pet_ID}`, {
+        const res = await fetch(`${SERVER_URL}/posts/${post.post_ID}`, {
             method : 'PUT', headers : { 'Content-Type': 'application/json' },
-            credentials : 'include', body : JSON.stringify(typePetData)
+            credentials : 'include', body : JSON.stringify(post)
         });
         
         const data = await res.json();
@@ -44,13 +44,13 @@ export const updateTypePet = async (typePetData) => {
         return { status : true, data }
 
     } catch (err) {
-        return { status : false, message : err.message }
+        return { status : false, message: err.message };
     }
 }
 
-export const deleteTypePet = async (typePetID) => {
+export const deletePost = async (post_ID) => {
     try {
-        const res = await fetch(`${SERVER_URL}/type-pets/${typePetID}`, {
+        const res = await fetch(`${SERVER_URL}/posts/${post_ID}`, {
             method : 'DELETE', headers : { 'Content-Type': 'application/json' },
             credentials : 'include'
         });
@@ -60,6 +60,6 @@ export const deleteTypePet = async (typePetID) => {
         return { status : true, data }
 
     } catch (err) {
-        return { status : false, message : err.message }
+        return { status : false, message: err.message };
     }
 }
