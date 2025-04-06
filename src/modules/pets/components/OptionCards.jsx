@@ -37,7 +37,7 @@ export const OptionCards = ({ onClose, pet }) => {
           </Link>
           
           {/* Card de Vacunas */}
-          <Link to={`${router.appointments}?pet_ID=${pet.pet_ID}`} className="bg-white border-2 border-black rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
+          <Link to={`${router.vaccines}?pet_ID=${pet.pet_ID}`} className="bg-white border-2 border-black rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
             <div className="h-2 bg-black"></div>
             <div className="p-6">
               <div className="flex items-center justify-between mb-4">

@@ -11,6 +11,8 @@ import { ProfilePage } from './modules/users/pages/ProfilePage';
 import { AdminPage } from './modules/admin/pages/AdminPage';
 import { AccessControl } from './modules/auth/components/AccessControl';
 import { AppointmentsManager } from './modules/pets/pages/AppointmentsManager';
+import { VaccinesManager } from './modules/pets/pages/VaccinesManager';
+import { TypePetsManager } from './modules/typePets/pages/TypePetsManager';
 
 function App() {
   return (
@@ -25,10 +27,12 @@ function App() {
                 <Route path={router.dashboard} element={<Dashboard />} />
                 <Route path={router.profile} element={<ProfilePage />} />
                 <Route path={router.appointments} element={<AppointmentsManager />} />
+                <Route path={router.vaccines} element={<VaccinesManager />} />
 
                 <Route element={<AccessControl />}>
                   <Route path={router.admin} element={<AdminPage />} />
-                  
+                  <Route path={router.typePets} element={<TypePetsManager />} />
+
                 </Route>
 
               </Route>

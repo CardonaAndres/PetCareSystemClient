@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { Pagination } from '../../../common/Pagination';
 import { Search, UserCheck, Filter, User } from 'lucide-react';
 import { UserCard } from '../components/UserCard';
+import { Header } from '../components/Header';
 
 export const AdminPage = () => {
   const { loading, getAllUsersPaginate, users, pagination } = useAdminHook();
@@ -35,37 +36,13 @@ export const AdminPage = () => {
         <Navbar />
         <div className="container mx-auto py-8">
           {/* Header */}
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-            <h1 className="text-2xl font-bold text-gray-800 mb-4 md:mb-0">Gestión de Usuarios</h1>
-            
-            {/* Search and Filter */}
-            <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
-                <input
-                  type="text"
-                  placeholder="Buscar usuario..."
-                  className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-              </div>
-              
-              <div className="relative">
-                <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
-                <select
-                  className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 appearance-none bg-white"
-                  value={filterRole}
-                  onChange={(e) => setFilterRole(e.target.value)}
-                >
-                  <option value="">Todos los roles</option>
-                  {roles.map((role) => (
-                    <option key={role} value={role}>{role}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
-          </div>
+          <Header 
+            searchTerm = {searchTerm}
+            filterRole = {filterRole} 
+            roles = {roles}
+            setSearchTerm = {setSearchTerm}
+            setFilterRole = {setFilterRole}
+          />  
 
           {/* Stats Summary */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">

@@ -5,5 +5,7 @@ export const router = {
     dashboard : '/dashboard',
     profile : '/profile',
     admin : '/admin',
-    appointments : '/appointments'
+    appointments : '/appointments',
+    vaccines : '/vaccines',
+    typePets : '/type-pets'
 }
